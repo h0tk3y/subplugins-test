@@ -1,0 +1,24 @@
+buildscript {
+    ext.kotlin_version = "1.1.1"
+    // // Uncomment these lines, and it passes, because the correct artifact is found in dependencies
+    // repositories { mavenCentral() }
+    // dependencies { classpath "org.jetbrains.kotlin:kotlin-allopen:1.1.1" }
+}
+
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.1.1"
+    id "org.jetbrains.kotlin.plugin.allopen" version "1.1.1"
+}
+
+repositories {
+    mavenCentral()
+}
+
+allOpen {
+    annotation("lib.AllOpen")
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testCompile "junit:junit:4.12"
+}
